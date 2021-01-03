@@ -127,11 +127,18 @@ static PyMethodDef Am2302_thsMethods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-PyMODINIT_FUNC initam2302_ths(void) {
+
+static struct PyModuleDef am2302_ths =
+{
+    PyModuleDef_HEAD_INIT,
+    "am2302_ths", /* name of module */
+    "usage: am2302_ths.methods()\n", /* module documentation, may be NULL */
+    -1,   /* size of per-interpreter state of the module, or -1 if the module keeps state in global variables. */
+    Am2302_thsMethods
+};
+
+PyMODINIT_FUNC PyInit_Combinations(void)
+{
     if (!bcm2835_init()) return; // Need the BCM2835 library
-
-    PyObject *m;
-
-    m = Py_InitModule("am2302_ths", Am2302_thsMethods);
-    if (m == NULL) return;
+    return PyModule_Create(&Combinations);
 }
