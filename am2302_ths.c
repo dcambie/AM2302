@@ -140,5 +140,5 @@ static struct PyModuleDef am2302_ths =
 PyMODINIT_FUNC PyInit_Combinations(void)
 {
     if (!bcm2835_init()) return; // Need the BCM2835 library
-    return PyModule_Create(&Combinations);
+    return PyModule_Create(&am2302_ths);
 }

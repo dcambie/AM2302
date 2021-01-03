@@ -10,7 +10,7 @@ setup(
         py_modules=['am2302_rpi'],
         ext_modules=[Extension(
                 'am2302_ths',
-                define_macros = [('BCM2708_PERI_BASE', '0x20000000'),
+                define_macros=[('BCM2708_PERI_BASE', '0x20000000'),
                                  ('GPIO_BASE',         '(BCM2708_PERI_BASE + 0x200000)'),
                                  ('MAXTIMINGS',        100)],
                 sources=['am2302_ths.c'],
